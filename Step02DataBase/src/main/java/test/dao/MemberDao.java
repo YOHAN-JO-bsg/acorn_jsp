@@ -18,6 +18,7 @@ public class MemberDao {
 	
 	//회원번호를 이용해서 회원 1명의 정보를 리턴하는 메소드
 	public MemberDto getByNum(int num) {
+		
 		//MemberDto 객체의 참조값을 담을 지역변수를 미리 만든다. 
 		MemberDto dto=null;
 		
@@ -54,7 +55,9 @@ public class MemberDao {
 				if (rs != null) rs.close();
 				if (pstmt != null) pstmt.close();
 				if (conn != null) conn.close();
-			} catch (Exception e) {}
+			} catch (Exception e) {
+				
+			}
 		}
 		return dto;
 	}
