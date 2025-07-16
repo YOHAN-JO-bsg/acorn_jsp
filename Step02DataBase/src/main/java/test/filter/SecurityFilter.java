@@ -4,6 +4,7 @@ package test.filter;
  */
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Set;
 
 import jakarta.servlet.Filter;
@@ -23,13 +24,15 @@ public class SecurityFilter implements Filter{
 	Set<String> whiteList = Set.of(
 		"/index.jsp",
 		"/user/loginform.jsp","/user/login.jsp",
-		"/user/signup-form.jsp","/user/signup.jsp"
+		"/user/signup-form.jsp","/user/signup.jsp",
+		"/images/"
 	);
 	
 	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
+		System.out.println("filter");
 		//로그인을 했는지 확인작업
 		//부모 type 을 자식 type 으로 casting 
 		HttpServletRequest req=(HttpServletRequest)request;
@@ -55,9 +58,14 @@ public class SecurityFilter implements Filter{
 		String userName=(String)session.getAttribute("userName");
 		//만일 로그인을 하지 않았다면 
 		if(userName == null) {
-			// 로그인 페이지로 리다일렉트(새로운 경로로 요청을 다시하라고 응답) 이동 시킨다.
-			res.sendRedirect(cPath+"/user/loginform.jsp");
-			
+			//로그인 페이지로 리다일렉트(새로운 경로로 요청을 다시하라고 응답) 이동 시킨다 
+			//query 문자열이 있으면 읽어와서 
+	        String query = req.getQueryString();
+	        //인코딩을 한다음 
+	        String encodedUrl = query == null ? URLEncoder.encode(uri, "UTF-8")
+	                                          : URLEncoder.encode(uri + "?" + query, "UTF-8");
+	        //리다일렉트 되는 경로뒤에 url 이라는 파라미터명으로 전달한다 
+	        res.sendRedirect(req.getContextPath() + "/user/loginform.jsp?url="+encodedUrl); 
 			return; //메소드를 여기서 끝내기
 		}
 		
