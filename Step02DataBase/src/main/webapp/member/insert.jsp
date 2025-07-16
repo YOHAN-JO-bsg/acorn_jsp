@@ -31,7 +31,7 @@
 			<p class="alert alert-success mt-5">
 			<i class="bi bi-check-circle-fill"></i>
 				<strong><%=name %> 님의 정보를 성공적으로 저장했습니다.</strong>
-				<a class="alert-link href="${pageContext.request.contextPath }/member/list.jsp">확인</a>	
+				<a class="alert-link" href="${pageContext.request.contextPath }/member/list.jsp">확인</a>	
 			</p>
 		<% }else{ %>
 			<p class="alert alert-danger mt-5">
