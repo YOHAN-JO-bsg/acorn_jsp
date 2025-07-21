@@ -9,9 +9,9 @@ public class UserDto {
 	private String role;
 	private String updatedAt;
 	private String createdAt;
-	// 생성자
+	//생성자
 	public UserDto() {}
-	// setter, getter 메소드
+	//setter, getter 메소드
 	public long getNum() {
 		return num;
 	}

@@ -12,19 +12,17 @@
 		<form action="signup.jsp" method="post">
 			<div>
 				<label for="userName">아이디</label>
-				<input type="text" name="userName" id="userName" />
+				<input type="text" name="userName" id="userName"/>
 			</div>
-			
 			<div>
 				<label for="password">비밀번호</label>
-				<input type="text" name="password" id="password" />
+				<input type="text" name="password" id="password"/>
 			</div>
-			
 			<div>
 				<label for="email">이메일</label>
-				<input type="text" name="email" id="email" />
+				<input type="email" name="email" id="email"/>
 			</div>
-			<button type="submit">가입</button>	
+			<button type="submit">가입</button>
 		</form>
 	</div>
 </body>

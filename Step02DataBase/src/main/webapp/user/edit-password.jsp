@@ -52,18 +52,7 @@
 				alert("새 비밀번호를 확인란과 동일하게 입력하세요!");
 				e.preventDefault();
 			}
-			
 		});
 	</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

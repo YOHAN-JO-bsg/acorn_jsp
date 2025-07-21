@@ -6,7 +6,7 @@ public class BookDto {
 	private String title;
 	private String author;
 	private String publisher;
-	
+
 	// 디폴트 생성자
 	public BookDto() {
 	  // setter, getter

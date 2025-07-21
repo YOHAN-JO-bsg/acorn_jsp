@@ -1,3 +1,27 @@
+CREATE TABLE lab (
+	num NUMBER PRIMARY KEY,
+	fav VARCHAR2(50) NOT NULL,
+	notfav VARCHAR2(50) NOT NULL,
+	hobby VARCHAR2(50),
+	createdAt DATE DEFAULT SYSDATE
+);
+
+CREATE SEQUENCE lab_seq;
+
+
+
+CREATE TABLE board(
+	num NUMBER PRIMARY KEY,
+	writer VARCHAR2(20) NOT NULL,
+	title VARCHAR2(50) NOT NULL,
+	content CLOB,
+	viewCount NUMBER DEFAULT 0,
+	createAt DATE DEFAULT SYSDATE
+);
+
+CREATE SEQUENCE board_seq;
+
+
 CREATE TABLE users(
 	NUM NUMBER PRIMARY KEY, -- 회원의 고유번호
 	userName VARCHAR2(20) UNIQUE, -- 아이디
